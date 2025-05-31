@@ -1,0 +1,159 @@
+:root {
+  --width:320px;
+  --height:180px;
+
+  --card-bg: linear-gradient(135deg, #fcb531 0%, #f66855 100%);
+  --card-text-hover: #889faf;
+  --card-border-hover: #ff5c11;
+  --card-link-hover: #ff5c11;
+  --card-link-bg-hover: rgba(252, 207, 49, 0.1);
+}
+
+/* Card-style lists */
+.circular-card-3d-slider-container {
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  position: relative;
+  padding: 0;
+}
+
+.circular-card-3d-slider-base {
+  position: absolute;
+  width: var(--width);
+  height: var(--height);
+  top: 10%;
+  left: calc(50% - var(--width) / 2);
+  transform-style: preserve-3d;
+  perspective: 1500px;
+}
+
+/* Up to 10 cards */
+/* Assign --position to each card using nth-child */
+.circular-card-3d-slider-base > li:nth-child(1) {
+  --position: 1;
+  --path: 0;
+}
+.circular-card-3d-slider-base > li:nth-child(2) {
+  --position: 2;
+  --path: 1;
+}
+.circular-card-3d-slider-base > li:nth-child(3) {
+  --position: 3;
+  --path: 2;
+}
+.circular-card-3d-slider-base > li:nth-child(4) {
+  --position: 4;
+  --path: 3;
+}
+.circular-card-3d-slider-base > li:nth-child(5) {
+  --position: 5;
+  --path: 4;
+}
+.circular-card-3d-slider-base > li:nth-child(6) {
+  --position: 6;
+  --path: 5;
+}
+.circular-card-3d-slider-base > li:nth-child(7) {
+  --position: 7;
+  --path: 6;
+}
+.circular-card-3d-slider-base > li:nth-child(8) {
+  --position: 8;
+  --path: 7;
+}
+.circular-card-3d-slider-base > li:nth-child(9) {
+  --position: 9;
+  --path: 8;
+}
+.circular-card-3d-slider-base > li:nth-child(10) {
+  --position: 10;
+  --path: 9;
+}
+
+.circular-card-3d-slider-item{
+  list-style: none;
+  position: absolute;
+  inset: 0 0 0 0;
+
+  --middle: calc(var(--quantity) / 2 + 1);
+  --closeness-to-middle: calc(
+    var(--middle) - abs(var(--middle) - var(--position))
+  );
+
+  
+  transform: translateZ(-500px)
+    rotateY(calc(calc(var(--path) * (360 / var(--quantity)) * 1deg)))
+    translateZ(500px);
+
+  transition: transform 0.5s cubic-bezier(0.4, 1, 0.2, 1),
+  box-shadow 0.18s cubic-bezier(0.4, 2, 0.6, 1),
+  background 0.18s cubic-bezier(0.4, 2, 0.6, 1),
+  color 0.18s cubic-bezier(0.4, 2, 0.6, 1),
+  border 0.18s cubic-bezier(0.4, 2, 0.6, 1);
+}
+
+/* Card base styles using CSS variables */
+.circular-card-3d-slider-link {
+  position: absolute;
+  inset:0 0 0 0;
+  text-decoration: none;
+  filter: brightness(calc(1 / (var(--closeness-to-middle))));
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  background: var(--card-bg, linear-gradient(135deg, #fcb531 0%, #f66855 100%));
+  color: #ffffffbd;
+  text-align: center;
+  box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.circular-card-3d-slider-item:hover {
+  transform: translateZ(-500px)
+      rotateY(calc(calc(var(--path)) * (360 / var(--quantity)) * 1deg))
+      translateZ(520px);
+}
+.circular-card-3d-slider-link:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0);
+  border: 2px solid var(--card-border-hover);
+  background: rgba(24, 26, 27);
+  color: var(--card-text-hover, #af9888);
+  font-weight: 600;
+}
+
+/* Icon styles */
+.circular-card-3d-slider-item i {
+  font-size: 1.5rem;
+  margin-right: 0.6rem;
+}
+
+
+/* Card title styles */
+.circular-card-3d-slider-card-title {
+  display: block;
+  padding: 1rem;
+  margin-top:0;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  background: #131414d2;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  transition: color 0.15s, background 0.15s;
+}
+
+.circular-card-3d-slider-item:hover .circular-card-3d-slider-card-title {
+  color: var(--card-link-hover, #ff5c11);
+  background: var(--card-link-bg-hover, rgba(252, 207, 49, 0.1));
+}
+
+/* Card description styles */
+.circular-card-3d-slider-card-content {
+  padding: 0 1rem 1rem 1rem;
+  color: #ffffff;
+  font-size: 1rem;
+}
+

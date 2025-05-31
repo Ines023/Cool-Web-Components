@@ -1,0 +1,247 @@
+/* Colors */
+:root {
+  --primary-color: rgb(154, 187, 9);
+  --secondary-color: rgb(238, 188, 52);
+  --gradient-color: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  --heading-2: #eb7507;
+  --heading-3: #e6a93a;
+  --heading-4: #aae958;
+  --heading-5: #cfec9a;
+  --heading-6: #ffdeb2;
+
+  --body-bg: rgb(255, 240, 212);
+  --main-bg: rgb(255, 248, 239);
+
+
+  --footer-bg: #eb7507;
+  --footer-desc: #fcf0b8;
+
+  --off-white: rgba(255, 255, 255, 0.8);
+  --off-black: rgba(0, 0, 0, 0.8);
+
+  --text-color: #251b12;
+
+  --black: #000;
+  --white: #fff;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Base styles and resets */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  color: var(--text-color);
+  line-height: 1.6;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+
+  margin: 0;
+  padding: 0;
+  background: var(--body-bg);
+  min-height: 100vh;
+}
+
+/* Header and Navbar */
+header {
+  color: var(--white);
+  background: var(--gradient-color);
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+#navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+}
+
+#navbar nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  transition: background 0.15s, color 0.15s;
+  background: var(--shadow);
+}
+
+#navbar nav a:hover,
+#navbar nav a.active {
+  background: var(--white);;
+  color: var(--primary-color);
+}
+
+
+.logo {
+  height: 40px;
+}
+
+/* Main content */
+main {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 2rem 2rem 3rem 2rem;
+  background: var(--main-bg);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px var(--shadow);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-top: 0;
+  background: var(--gradient-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--heading-2);
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: var(--heading-3);
+}
+
+h4 {
+  font-size: 1.05rem;
+  color: var(--heading-4);
+}
+
+h5{
+  font-size: 1rem;
+  color: var(--heading-5);
+}
+
+h6{
+  font-size: 1rem;
+  color: var(--heading-6);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+li {
+  flex: 1 1 calc(33.333% - 2rem);
+  min-width: 250px;
+  background: var(--off-white);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.15s, background 0.15s;
+}
+
+
+/* Responsive design */
+@media (max-width: 900px) {
+  main {
+    max-width: 95vw;
+  }
+  ul {
+    gap: 1rem;
+  }
+  li {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  #navbar nav {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 0.5rem;
+  }
+
+}
+
+.site-footer {
+  background: var(--footer-bg);
+  color: var(--white);
+  text-align: center;
+  padding: 2rem 0 0 0;
+  margin-top: 3rem;
+  font-size: 1rem;
+  box-shadow: 0 -2px 8px var(--shadow);
+
+}
+
+.footer-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.footer-link .footer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--gradient-color);
+  color: var(--white);
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.1rem;
+  text-decoration: none;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: background 0.18s, color 0.18s, transform 0.12s;
+  cursor: pointer;
+}
+
+.footer-link .footer-btn:hover,
+.footer-link .footer-btn:focus {
+  background: var(--gradient-color);
+  color: #131414;
+  transform: translateY(-2px) scale(1.04);
+}
+
+.footer-description {
+  font-size: 0.93rem;
+  color: #fcf0b8;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 1.2rem 0 0.8rem 0;
+  }
+}

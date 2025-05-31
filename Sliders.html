@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card sliders</title>
+
+    <link rel="icon" href="base/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="base/style.css">
+
+    <link rel="stylesheet" href="components/css/3D_card_circular_slider.css">
+</head>
+<body>
+    <header>
+      <nav id="navbar"></nav>
+    </header>
+
+    <main>
+
+        <h1>Card Sliders</h1>
+        <p>This is a compilation of card sliders, each with instructions on how to incorporate them to a website.</p>
+
+        
+        <h2>3D Circular slider</h2>
+
+        <p>This slider is inspired by: </p>
+        <h3>Preview</h3>
+
+        <div id="3D-card-circular-slider"></div>
+
+    </main>
+
+
+    <footer id="footer" class="site-footer"></footer>
+
+
+<script src="base/navbar-footer.js"></script>
+<script>
+  fetch("components/3D_card_circular_slider.html")
+    .then((res) => res.text())
+    .then((html) => {
+      document.getElementById("3D-card-circular-slider").innerHTML = html;
+      // Dynamically load the script after HTML is injected
+      const script = document.createElement('script');
+      script.src = "components/js/3D_card_circular_slider.js";
+      document.body.appendChild(script);
+    });
+</script>
+
+</body>
+</html>
