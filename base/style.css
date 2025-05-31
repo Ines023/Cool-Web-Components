@@ -56,14 +56,14 @@ header {
   box-shadow: 0 2px 8px var(--shadow);
 }
 
-#navbar nav {
+nav {
   display: flex;
   align-items: center;
   gap: 2rem;
   padding: 1rem 2rem;
 }
 
-#navbar nav a {
+#navbar a {
   color: var(--white);
   text-decoration: none;
   font-weight: 500;
@@ -73,8 +73,8 @@ header {
   background: var(--shadow);
 }
 
-#navbar nav a:hover,
-#navbar nav a.active {
+#navbar a:hover,
+#navbar a.active {
   background: var(--white);;
   color: var(--primary-color);
 }
